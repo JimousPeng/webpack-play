@@ -5,12 +5,12 @@ console.log('running 测试112', module.loaded)
 // exports.add = function(a, b) {
 //     return a * b;
 // }
-// module.exports = {
-//     name: 'calculator',
-//     add: function(a,b) {
-//         return a + b;
-//     }
-// }
+module.exports = {
+    name: 'calculator',
+    add: function(a,b) {
+        return a + b;
+    }
+}
 // console.log('running 测试1123', module.loaded)
 // var count = 0;
 // module.exports = {
@@ -31,9 +31,9 @@ console.log('running 测试112', module.loaded)
 //     }
 // }
 // export { name }
-export let count = 0;
-export const name = 'calculator';
-const add = function(a, b) { return a + b; }
-export default {
-    add
-}
+// export let count = 0;
+// export const name = 'calculator';
+// const add = function(a, b) { return a + b; }
+// export default {
+//     add
+// }

@@ -20,7 +20,7 @@ addContent();
 // console.log(count); //0
 // count += 1;
 // console.log(count); //1
-require('./foo.js')
+// require('./foo.js')
 
 
 
@@ -33,5 +33,15 @@ require('./foo.js')
 // import myCalculator, { name } from './calculator.js';
 // let a = myCalculator.add(2, 3);
 // console.log(a, name)
-import * as myCont from './calculator.js';
-console.log(myCont.default)
+// import * as myCont from './calculator.js';
+// console.log(myCont.default)
+// import foo from './foo.js'
+// console.log(9)
+// foo('index.js')
+
+
+
+// 模块打包原理
+const calculator = require('./calculator');
+const sum = calculator.add(2, 3);
+console.log('sum', sum)
