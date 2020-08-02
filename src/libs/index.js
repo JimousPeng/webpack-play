@@ -1,5 +1,5 @@
 import addContent from './add-content';
-document.write('jimous,hhh.<br />');
+document.write('jimous,hhhss.<br />');
 addContent();
 
 // 在导入一个模块时，对CommonJS来说获取的是一份导出值的拷贝，而在ES6 Module中则是值的动态映射，并且这个映射是只读的。
