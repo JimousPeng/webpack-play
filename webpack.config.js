@@ -5,8 +5,8 @@ module.exports = {
     // entry: './index.js', // String Array Object Func 都可以
     entry: {
         index: './index.js',
-        second: './test.js',
-        app: './app.js'
+        // second: './test.js',
+        // app: './app.js'
     },
     output: {
         filename: '[name].js',
@@ -22,36 +22,32 @@ module.exports = {
             //     use: 'eslint-loader',
             // },
             {
-                // test: /\.css$/, // 正则或者正则数组
+                test: /\.css$/, // 正则或者正则数组
                 use: ['style-loader','css-loader'], // webpack打包是按照数组从后往前的顺序将资源交给loader处理的，因此要把最后生效的放在前面。 字符串、数组，对象均可
-                // exclude: /node_modules/, //node_modules中的模块不执行该条规则。该配置项通常是必加的，否则可能拖慢整个的打包速度。
-                // include: /src/, // 只对匹配到的模块生效。exclude和include同时存在，exclude的优先级更高。
-                resource: {
-                    // resource -- 加载模块
-                    test: /\.css$/, // 正则或者正则数组
-                    exclude: /node_modules/,
-                },
-                issuer: {
-                    // issuer -- 加载者
-                    // 只让 /src 目录下的js可以引用css
-                    test: /\.js$/,
-                    include: /src/,
-                    exclude: /node_modules/,
-                }
+                exclude: /node_modules/, //node_modules中的模块不执行该条规则。该配置项通常是必加的，否则可能拖慢整个的打包速度。
+                include: /src/, // 只对匹配到的模块生效。exclude和include同时存在，exclude的优先级更高。
+                // resource: {
+                //     // resource -- 加载模块
+                //     test: /\.css$/, // 正则或者正则数组
+                //     exclude: /node_modules/,
+                // },
+                // issuer: {
+                //     // issuer -- 加载者
+                //     // 只让 /src 目录下的js可以引用css
+                //     test: /\.js$/,
+                //     include: /src/,
+                //     exclude: /node_modules/,
+                // }
             },
             {
                 test: /\.js$/,
                 exclude: /node_module/,
                 use: {
-                    loader: 'babel-loader', // babel通常属于对所有JS后缀文件设置的规则，所有需要
+                    loader: 'babel-loader', // babel通常属于对所有JS后缀文件设置的规则，所有需要exclude加上node_modules文件夹
                     options: {
-                        cachDirectory: true,
+                        cacheDirectory: true, // 启用缓存 --String: 字符串类型的路径作为缓存路径； -- true: 缓存目录指向node_modules/.cache/babel-loader
                         presets: [
-                            [
-                                'env', {
-                                    modules: true,
-                                }
-                            ]
+                            [ "@babel/preset-env", { modules: false} ] // 禁用babel内部模块语句的转化，将ES6 Module语法交给webpack本身处理
                         ]
                     }
                 }
