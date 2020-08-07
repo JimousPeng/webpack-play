@@ -40,18 +40,23 @@ module.exports = {
                 // }
             },
             {
-                test: /\.js$/,
-                exclude: /node_module/,
-                use: {
-                    loader: 'babel-loader', // babel通常属于对所有JS后缀文件设置的规则，所有需要exclude加上node_modules文件夹
-                    options: {
-                        cacheDirectory: true, // 启用缓存 --String: 字符串类型的路径作为缓存路径； -- true: 缓存目录指向node_modules/.cache/babel-loader
-                        presets: [
-                            [ "@babel/preset-env", { modules: false} ] // 禁用babel内部模块语句的转化，将ES6 Module语法交给webpack本身处理
-                        ]
-                    }
-                }
-            }
+                test: /\.html$/,
+                use: 'html-loader'
+                // exclude: /node_modules/
+            },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_module/,
+            //     use: {
+            //         loader: 'babel-loader', // babel通常属于对所有JS后缀文件设置的规则，所有需要exclude加上node_modules文件夹
+            //         options: {
+            //             cacheDirectory: true, // 启用缓存 --String: 字符串类型的路径作为缓存路径； -- true: 缓存目录指向node_modules/.cache/babel-loader
+            //             presets: [
+            //                 [ "@babel/preset-env", { modules: false} ] // 禁用babel内部模块语句的转化，将ES6 Module语法交给webpack本身处理
+            //             ]
+            //         }
+            //     }
+            // }
         ]
     },
     mode: 'development',
