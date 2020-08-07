@@ -1,6 +1,8 @@
 import '../assets/style.css'
 import addContent from './add-content';
 import headerHtml from '../template/header.html'
+import avatarImage from '../../test.jpg';
+console.log(avatarImage, '看看图片地址')
 document.write('jimous,hhhss');
 document.write(headerHtml)
 addContent();

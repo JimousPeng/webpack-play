@@ -10,8 +10,8 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, 'dist')
-        // publicPath: '/dist/'
+        path: path.join(__dirname, 'dist'),
+        publicPath: '/dist/'
     },
     // module.rules 代表了模块的处理规则
     module: {
@@ -57,6 +57,27 @@ module.exports = {
             //         }
             //     }
             // }
+            // {
+            //     test: /\.(png|jpg|fig)$/,
+            //     use: {
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: '[name].[ext]',
+            //             publicPath: './another-path',
+            //         }
+            //     }
+            // }
+            {
+                test: /\.(png|jpg|fig)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 500,
+                        name: '[name].[ext]',
+                        publicPath: './assets-path'
+                    }
+                }
+            }
         ]
     },
     mode: 'development',
